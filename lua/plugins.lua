@@ -89,7 +89,8 @@ return packer.startup(function(use)
 				open_on_tab = true,
 				sort_by = "case_sensitive",
 				view = {
-					adaptive_size = true,
+					width = 30,
+					adaptive_size = false,
 					mappings = {
 						custom_only = true,
 						list = {
