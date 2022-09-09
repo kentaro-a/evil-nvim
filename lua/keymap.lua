@@ -54,7 +54,7 @@ keymap("n", "<S-Right>", "gt", opts)
 keymap("n", "<Space>f", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
 keymap("n", "<Space>g", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
 keymap("n", "<Space>,", "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
-keymap('n', '<Space><Space>', "<cmd>lua require('lasterisk').search()require('hlslens').start()<cr>", opts)
+keymap('n', '<Space><Space>', "yiw<cmd>lua require('lasterisk').search()require('hlslens').start()<cr>", opts)
 keymap('x', '<Space><Space>', "<cmd>lua require('lasterisk').search({ is_whole = false })require('hlslens').start()<cr>", opts)
 keymap('n', '<Space>r', ':%s///g<left><left>', {noremap = true})
 
