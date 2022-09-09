@@ -60,3 +60,6 @@ keymap('n', '<Space>r', ':%s///g<left><left>', {noremap = true})
 
 keymap('n', '<C-j>', '<Plug>(edgemotion-j)', {noremap = true})
 keymap('n', '<C-k>', '<Plug>(edgemotion-k)', {noremap = true})
+
+keymap('n', 'm', "<cmd>lua require'hop'.hint_words()<cr>", {noremap = true})
+
