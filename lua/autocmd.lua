@@ -21,5 +21,5 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
 	end
 })
--- 
+
 

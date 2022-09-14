@@ -32,7 +32,7 @@ cmp.setup({
 	},
 	sources = {
 		{ name = "nvim_lsp" },
-		-- { name = "buffer" },
+		{ name = "buffer" },
 		-- { name = "path" },
 	},
 	mapping = cmp.mapping.preset.insert({
@@ -55,6 +55,8 @@ cmp.setup({
 				fallback()
 			end
 		end, {'i', 's'}),
+		['<Esc>'] = cmp.mapping.abort(),
+		['<C-i>'] = cmp.mapping.complete(),
 	}),
 	experimental = {
 		ghost_text = true,

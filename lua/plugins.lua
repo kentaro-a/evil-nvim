@@ -360,6 +360,15 @@ return packer.startup(function(use)
 			require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
 		end
 	}
+	
+	use({
+		"mattn/vim-goimports",
+	})
+
+	use({
+		'kevinhwang91/nvim-bqf',
+	})
+	
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
