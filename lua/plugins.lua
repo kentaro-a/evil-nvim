@@ -119,6 +119,9 @@ return packer.startup(function(use)
 				filters = {
 					dotfiles = false,
 				},
+				git = {
+					ignore = false,
+				},
 			})
 		end,
 	}
