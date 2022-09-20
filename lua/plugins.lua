@@ -177,7 +177,12 @@ return packer.startup(function(use)
 				sections = {
 					lualine_a = {'mode'},
 					lualine_b = {'branch', 'diff', 'diagnostics'},
-					lualine_c = {'filename'},
+					lualine_c = {
+						{
+							'filename',
+							path = 2,
+						}
+					},
 					lualine_x = {'encoding', 'filetype'},
 					lualine_y = {},
 					lualine_z = {'location'}
@@ -185,7 +190,9 @@ return packer.startup(function(use)
 				inactive_sections = {
 					lualine_a = {},
 					lualine_b = {},
-					lualine_c = {'filename'},
+					lualine_c = {
+						'filename',
+					},
 					lualine_x = {'location'},
 					lualine_y = {},
 					lualine_z = {}
