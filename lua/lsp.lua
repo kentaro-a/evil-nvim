@@ -1,9 +1,10 @@
 
 vim.keymap.set('n', 'K',  '<cmd>lua vim.lsp.buf.hover()<CR>')
-vim.keymap.set('n', ',f', '<cmd>lua vim.lsp.buf.references()<CR>')
+vim.keymap.set('n', ',F', '<cmd>lua vim.lsp.buf.references()<CR>')
 vim.keymap.set('n', ',d', '<cmd>lua vim.lsp.buf.definition()<CR>')
 vim.keymap.set('n', ',D', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 vim.keymap.set('n', ',r', '<cmd>lua vim.lsp.buf.rename()<CR>')
+vim.keymap.set('n', ',f', '<cmd>lua vim.lsp.buf.formatting_sync()<CR>')
 
 -- LSP handlers
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
