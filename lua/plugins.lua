@@ -88,6 +88,7 @@ return packer.startup(function(use)
 				open_on_setup_file = true,
 				open_on_tab = true,
 				sort_by = "case_sensitive",
+				create_in_closed_folder= true,	
 				view = {
 					width = 30,
 					adaptive_size = false,
