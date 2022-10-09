@@ -16,10 +16,4 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	end
 })
 
--- vim.api.nvim_create_autocmd("BufWritePre", {
--- 	callback = function()
--- 		vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()]]
--- 	end
--- })
---
 

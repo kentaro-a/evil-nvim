@@ -135,6 +135,13 @@ return packer.startup(function(use)
 		config = function()
 			require("telescope").setup({
 				defaults = {
+					mappings = {
+						i = {
+							["<esc>"] = require('telescope.actions').close,
+							["<C-o>"] = require('telescope.actions').send_selected_to_qflist + require('telescope.actions').open_qflist,
+							["<C-t>"] = require('telescope.actions').select_default,
+						},
+					},
 				},
 				pickers = {
 					find_files = {
@@ -380,6 +387,7 @@ return packer.startup(function(use)
 		'kevinhwang91/nvim-bqf',
 	})
 	
+
 
 	if PACKER_BOOTSTRAP then
 		require("packer").sync()
