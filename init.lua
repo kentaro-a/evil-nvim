@@ -18,3 +18,6 @@ vim.cmd("colorscheme nightfox")
 -- 	execute "set <xLeft>=\e[1;*D"
 -- endif
 --
+--
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
