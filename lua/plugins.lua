@@ -139,7 +139,7 @@ return packer.startup(function(use)
 						i = {
 							["<esc>"] = require('telescope.actions').close,
 							["<C-o>"] = require('telescope.actions').send_selected_to_qflist + require('telescope.actions').open_qflist,
-							["<C-t>"] = require('telescope.actions').select_default,
+							-- ["<C-t>"] = require('telescope.actions').select_default,
 						},
 					},
 				},
