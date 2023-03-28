@@ -5,7 +5,7 @@ vim.keymap.set('n', ',d', '<cmd>lua vim.lsp.buf.definition()<CR>')
 vim.keymap.set('n', ',D', '<cmd>lua vim.lsp.buf.declaration()<CR>')
 vim.keymap.set('n', ',r', '<cmd>lua vim.lsp.buf.rename()<CR>')
 vim.keymap.set('n', ',f', '<cmd>lua vim.lsp.buf.formatting_sync()<CR>')
-
+--
 -- LSP handlers
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 	vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false }
@@ -18,8 +18,8 @@ highlight LspReferenceRead  cterm=underline ctermfg=1 ctermbg=8 gui=underline gu
 highlight LspReferenceWrite cterm=underline ctermfg=1 ctermbg=8 gui=underline guifg=#A00000 guibg=#104040
 augroup lsp_document_highlight
 autocmd!
-autocmd CursorHold,CursorHoldI * lua vim.lsp.buf.document_highlight()
-autocmd CursorMoved,CursorMovedI * lua vim.lsp.buf.clear_references()
+autocmd CursorHold,CursorHoldI * silent! lua vim.lsp.buf.document_highlight()
+autocmd CursorMoved,CursorMovedI * silent! lua vim.lsp.buf.clear_references()
 augroup END
 ]]
 
@@ -33,46 +33,40 @@ cmp.setup({
 	},
 	sources = {
 		{ name = "nvim_lsp" },
+		{ name = "vsnip" },
 		{ name = "buffer" },
-		-- { name = "path" },
 	},
 	mapping = cmp.mapping.preset.insert({
-		["<CR>"] = cmp.mapping.confirm { select = true },
-		['<Tab>'] = cmp.mapping(function(fallback)
-			local col = vim.fn.col('.') - 1
+		['<C-b>'] = cmp.mapping.scroll_docs(-4),
+		['<C-f>'] = cmp.mapping.scroll_docs(4),
+		['<C-Space>'] = cmp.mapping.complete(),
+		['<C-e>'] = cmp.mapping.abort(),
+		['<CR>'] = cmp.mapping.confirm({ select = true }), 
 
-			if cmp.visible() then
-				cmp.select_next_item(select_opts)
-			elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-				fallback()
-			else
-				cmp.complete()
-			end
-		end, {'i', 's'}),
-		['<S-Tab>'] = cmp.mapping(function(fallback)
-			if cmp.visible() then
-				cmp.select_prev_item(select_opts)
-			else
-				fallback()
-			end
-		end, {'i', 's'}),
-		['<Esc>'] = cmp.mapping.abort(),
-		['<C-i>'] = cmp.mapping.complete(),
-	}),
+		-- ["<CR>"] = cmp.mapping.confirm { select = true },
+		-- ['<Tab>'] = cmp.mapping(function(fallback)
+		-- 	local col = vim.fn.col('.') - 1
+		-- 
+		-- 	if cmp.visible() then
+		-- 		cmp.select_next_item(select_opts)
+		-- 	elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+		-- 		fallback()
+		-- 	else
+		-- 		cmp.complete()
+		-- 	end
+		-- end, {'i', 's'}),
+		-- ['<S-Tab>'] = cmp.mapping(function(fallback)
+		-- 	if cmp.visible() then
+		-- 		cmp.select_prev_item(select_opts)
+		-- 	else
+		-- 		fallback()
+		-- 	end
+		-- end, {'i', 's'}),
+		-- ['<Esc>'] = cmp.mapping.abort(),
+		-- ['<C-i>'] = cmp.mapping.complete(),
+	}),		
 	experimental = {
 		ghost_text = true,
 	},
 })
--- cmp.setup.cmdline('/', {
-	--   mapping = cmp.mapping.preset.cmdline(),
-	--   sources = {
-		--     { name = 'buffer' }
-		--   }
-		-- })
-		-- cmp.setup.cmdline(":", {
-			--   mapping = cmp.mapping.preset.cmdline(),
-			--   sources = {
-				--     { name = "path" },
-				--     { name = "cmdline" },
-				--   },
-				-- })
+

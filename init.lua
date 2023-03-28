@@ -5,6 +5,7 @@ require("keymap")
 require("lsp")
 require("autocmd")
 
+
 -- vim.cmd("colorscheme duskfox")
 -- vim.cmd("colorscheme terafox")
 vim.cmd("colorscheme nightfox")

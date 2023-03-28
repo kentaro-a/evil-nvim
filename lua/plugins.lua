@@ -130,7 +130,6 @@ return packer.startup(function(use)
 
 	use {
 		'nvim-telescope/telescope.nvim',
-		tag = '0.1.0',
 		requires = { {'nvim-lua/plenary.nvim'} },
 		config = function()
 			require("telescope").setup({
@@ -138,8 +137,8 @@ return packer.startup(function(use)
 					mappings = {
 						i = {
 							["<esc>"] = require('telescope.actions').close,
+							-- ["<C-o>"] = require('telescope.actions').send_selected_to_qflist + require('telescope.builtin').quickfix(),
 							["<C-o>"] = require('telescope.actions').send_selected_to_qflist + require('telescope.actions').open_qflist,
-							-- ["<C-t>"] = require('telescope.actions').select_default,
 						},
 					},
 				},
@@ -152,7 +151,6 @@ return packer.startup(function(use)
 					},
 				},
 				extensions = {
-
 					fzf = {
 						fuzzy = true,                    -- false will only do exact matching
 						override_generic_sorter = true,  -- override the generic sorter
@@ -314,9 +312,7 @@ return packer.startup(function(use)
 		config = function()
 			require('mason-lspconfig').setup_handlers({ function(server)
 				local opt = {
-					capabilities = require('cmp_nvim_lsp').update_capabilities(
-						vim.lsp.protocol.make_client_capabilities()
-					)
+					capabilities = require('cmp_nvim_lsp').default_capabilities()
 				}
 
 				local node_root_dir = require('lspconfig').util.root_pattern("package.json")
@@ -365,13 +361,7 @@ return packer.startup(function(use)
 	use({"hrsh7th/vim-vsnip"})
 	use({"hrsh7th/cmp-path"})
 
-	use({
-		'windwp/nvim-ts-autotag',
-		config = function()
-			require('nvim-ts-autotag').setup()
-		end,
-
-	})
+	
 
 	use({
 		'haya14busa/vim-edgemotion',
@@ -398,6 +388,19 @@ return packer.startup(function(use)
 	use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
 	
+
+	use {
+		'ten3roberts/qf.nvim',
+		config = function()
+			require'qf'.setup{}
+		end
+	}
+
+	-- use({
+	--  	'github/copilot.vim',
+	-- })
+
+
 
 
 	if PACKER_BOOTSTRAP then

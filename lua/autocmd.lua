@@ -2,7 +2,7 @@
 
 
 
--- NvimTree -> tab本体にフォーカスする
+-- -- NvimTree -> tab本体にフォーカスする
 vim.api.nvim_create_autocmd("TabEnter", {
 	command = ":wincmd l",
 })

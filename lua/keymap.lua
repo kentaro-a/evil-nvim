@@ -49,12 +49,17 @@ keymap("n", "<S-Right>", "gt", opts)
 -- nnoremap <silent> <Space><Space> ""yiw:let @/ = '\<' . @" . '\>'<CR>:set hlsearch<CR>
 -- vnoremap <silent> <Space><Space> ""y:let @/ = @"<CR>:set hlsearch<CR>
 
+keymap("n", "<Space>co", "<cmd>lua require'qf'.open('c')<cr>", opts)
+keymap("n", "<Space>cc", "<cmd>lua require'qf'.close('c')<cr>", opts)
 
 
 keymap("n", "<Space>h", "<cmd>Telescope oldfiles<cr>", opts)
 keymap("n", "<Space>f", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
 keymap("n", "<Space>g", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
 keymap("n", "<Space>,", "<cmd>lua require('telescope.builtin').grep_string()<cr>", opts)
+keymap("n", "<Space>d", "<cmd>lua require('telescope.builtin').lsp_definitions()<cr>", opts)
+keymap("n", "<Space>;", "<cmd>lua require('telescope.builtin').resume()<cr>", opts)
+keymap("n", "<Space>q", "<cmd>lua require('telescope.builtin').quickfix()<cr>", opts)
 keymap("n", ";;", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
 keymap('n', '<Space><Space>', "yiw<cmd>lua require('lasterisk').search()require('hlslens').start()<cr>", opts)
 keymap('x', '<Space><Space>', "<cmd>lua require('lasterisk').search({ is_whole = false })require('hlslens').start()<cr>", opts)
